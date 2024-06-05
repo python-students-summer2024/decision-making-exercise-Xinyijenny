@@ -12,8 +12,9 @@ def get_year():
     """
     This function is given to you... it is used by the is_leap_year() function below.
     Do not modify this function.
-      :returns: The current year, e.g. 2020
+      :returns: The current y.ear, eg. 2020
     """
+
     now = datetime.datetime.now()  # get the current time now
     year = now.year  # the current year
     return year
@@ -27,6 +28,25 @@ def is_square():
       :returns: True if square (i.e. if equal length and height), False otherwise.
     """
     #### write your solution for this function below here. ####
+    width = input("Width in inches: ")
+    height = input("height in inches: ")
+
+    # check the input, turn in to float or integer
+    if "." in width:
+        width = float(width)
+    else:
+        width = int(width)
+
+    if "." in height:
+        height = float(height)
+    else:
+        height= int(height)
+    # check the square
+    if width == height:
+        return True
+    else:
+        return False
+
 
 
 def get_greatest():
@@ -38,6 +58,16 @@ def get_greatest():
     :returns: the greatest of the two input numbers, as an int.
     """
     #### write your solution for this function below here. ####
+
+    int1 = int(input("Enter the first integer: "))
+    int2 = int(input("Enter the second integer: "))
+
+    if int1 > int2:
+        return int1
+    else:
+        return int2  
+
+
 
 
 def get_bmi_category():
@@ -61,6 +91,45 @@ def get_bmi_category():
     """
     #### write your solution for this function below here. ####
 
+    
+    height = input("Your Height(in inches): ")
+    weight = input("Your Weight(in pounds): ")
+
+    # determine if input is float or integer
+    if "." in weight:
+        weight = float(weight)
+    else:
+        weight = int(weight)
+    if "." in height: 
+        height = float(height)
+    else:
+        height = int(height)
+    
+    # calculation BMI
+    bmi =  703 * weight / height**2
+    print(bmi)
+
+    if bmi < 15 :
+        return "Very severely underweight"
+    elif bmi >= 15 and bmi < 16:
+        return "Severely underweight"
+    elif bmi >= 16 and bmi < 18.5:
+        return "Underweight"
+    elif bmi >= 18.5 and bmi < 25:
+        return "Normal"
+    elif bmi >= 25 and bmi < 30:
+        return "Overweight"
+    elif bmi >= 30 and bmi < 35:
+        return "Moderately obese"
+    elif bmi >= 35 and bmi < 40:
+        return "Severely obese"
+    else:
+        return "Very severely obese"
+    
+
+
+
+
 
 def get_discount():
     """
@@ -72,6 +141,20 @@ def get_discount():
       :returns: The cost of the masks, after any discounts, e.g. "$4,000" for 1000 masks.
     """
     #### write your solution for this function below here. ####
+    num_mask = int(input("How many masks do you want?"))
+    
+    # total = number * cost
+    cost_of_mask = num_mask * 5
+   
+
+    if num_mask >= 5000:
+        return "$" + format(round(0.8 * cost_of_mask),",d") # round to nearest int and format with "," for thousands
+    else:
+        return "$" + format(cost_of_mask,",d")
+    
+    
+    
+     
 
 
 def is_leap_year():
@@ -85,3 +168,16 @@ def is_leap_year():
         get_year()
     )  # this line is given to you - the variable, year, holds the current year
     #### write your solution for this function below here. ####
+
+    if year % 100 == 0:
+        if year % 400 == 0:
+            return True
+        else:
+            return False
+    else:
+        if year % 4 == 0:
+            return True
+        else:
+            return False
+
+
